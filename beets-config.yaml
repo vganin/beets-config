@@ -1,0 +1,34 @@
+# Intended to be included in the local config like so:
+# include:
+#    - <path-to-the-repo>/beets-config.yaml
+
+# Global options
+plugins: inline discogs fetchart
+original_date: yes
+artist_credit: no
+per_disc_numbering: yes
+aunique:
+    keys: albumartist year album
+    disambiguators: albumtype label catalognum albumdisambig releasegroupdisambig
+    bracket: '[]'
+
+# Importer options
+import:
+    move: no
+    copy: no
+    write: no
+    
+# Path Format Configuration
+paths:
+    default: $albumartist/($year) $album%aunique{}/%if{$multidisc,$disc.}$track. $title
+    singleton: No Album/$artist/$title
+    comp: Various Artists/($year) $album%aunique{}/%if{$multidisc,$disc.}$track. $title
+    
+# Inline Plugin
+item_fields:
+    multidisc: 1 if disctotal > 1 else 0
+    
+# Discogs
+discogs:
+    append_style_genre: yes
+    
