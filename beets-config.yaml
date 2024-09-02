@@ -2,7 +2,7 @@
 # include:
 #    - <path-to-the-repo>/beets-config.yaml
 
-plugins: inline discogs fetchart lastgenre edit zero scrub duplicates
+plugins: inline discogs fetchart lastgenre edit zero scrub duplicates rewrite
 
 format_item: $albumartist - ($year) $album%aunique{} - %if{$multidisc,$disc.}$track. $title
 
@@ -58,3 +58,6 @@ lastgenre:
 zero:
     fields: images
     update_database: true
+
+rewrite:
+    artist Wędrowcy Tułacze Zbiegi: wędrowcy~tułacze~zbiegi
